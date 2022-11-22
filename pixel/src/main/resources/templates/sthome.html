@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Home</title>
+    <style>
+        .imgslide{
+            width: 100%;
+        }
+        a{
+            text-decoration: none;
+        }
+        .imgfeature{
+            width: 100%;
+        }
+        .body{
+            border: 1px solid;
+            padding: 15px;
+            border-radius: 25%;
+            background-color: white;
+        }
+        .slide{
+            margin: 0 0;
+            padding: 0 0;
+        }
+        body, footer{
+            background-color: #005baa;
+        }
+        .imgfeature:hover{
+            -webkit-transform: scale(0.8);
+	        transform: scale(0.8);
+        }
+    </style>
+	<script>
+        $(document).ready(function(){
+            $("#header").load("./header.html");
+        });
+    </script>
+</head>
+<body>
+	<div id="header"></div>
+    <div class="container-fluid slide">
+        <div id="slideshow" class="carousel slide px-4 mt-2" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#slideshow" data-bs-slide-to="0" class="active" aria-current="true"></button>
+                <button type="button" data-bs-target="#slideshow" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#slideshow" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="imgslide" src="https://vfis.tdtu.edu.vn/sites/default/files/gva-sliderlayer-upload/VYF06631-odvlig.jpg">
+                </div>
+                <div class="carousel-item">
+                    <img class="imgslide" src="https://vfis.tdtu.edu.vn/sites/default/files/gva-sliderlayer-upload/VYF08246-1hapg2.jpg">
+                </div>
+                <div class="carousel-item">
+                    <img class="imgslide" src="https://vfis.tdtu.edu.vn/sites/default/files/gva-sliderlayer-upload/VYF03735-2jehkl.jpg">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#slideshow" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#slideshow" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+
+    <div class="container mt-5 body">
+        <div class="row d-flex justify-content-center">
+            <div class="col-3">
+                <div class="card h-100">
+                    <a href="#"><img class="imgfeature" src="data:image/png;base64,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" alt=""></a>
+                    <div class="card-body">
+                        <h3><a href="#"> Mượn thiết bị </a></h3>
+                        <p>Tạo phiếu mượn thiết bị tại đây</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-3">
+                <div class="card h-100">
+                    <a href="#"><img class="imgfeature" src="data:image/png;base64,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" alt=""></a>
+                    <div class="card-body">
+                        <h3><a href="#"> Lịch sử </a></h3>
+                        <p>Các phiếu mượn được lưu trữu tại đây</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center pt-4">
+            <div class="col-3">
+                <div class="card h-100">
+                    <a href="#"><img class="imgfeature" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ_YA2N48_bzmmMsBl6ViYLxWUSdN5WTpfDQ&usqp=CAU" alt=""></a>
+                    <div class="card-body">
+                        <h3><a href="#"> Thông tin tài khoản </a></h3>
+                        <p>Xem các thông tin của tài khoản</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr size="10">
+    <div class="container-fluit">
+        <div class="row mt-3">
+            <div class="footer d-flex justify-content-center p-5">
+                <span style="color: white;">Copyright ©2020 Đại học Tôn Đức Thắng</span> 
+            </div>
+        </div>
+    </div>
+</body>
+</html>

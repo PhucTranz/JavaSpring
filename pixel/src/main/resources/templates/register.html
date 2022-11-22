@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <title>Tạo tài khoản</title>
+    <style>
+        #imglogo{
+            width: 50%;
+            height: 50%;
+            margin-left: 3%
+        }
+        nav{
+            background-color: #005baa;
+        }
+        .nav-link{
+            color: white;
+        }
+        a{
+            text-decoration: none;
+        }
+        .body{
+            border: 1px solid;
+            padding: 15px;
+            border-radius: 25%;
+            background-color: white;
+        }
+        body, footer{
+            background-color: #005baa;
+        }
+        .form-group, .form-check{
+            margin: auto;
+            margin-top: 5px;
+        }
+        .add{
+            width: 25%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img id="imglogo" th:src="@{images/logo02.png}" alt=""></a>
+            <div class="d-lg-flex justify-content-end">  
+                <a class="nav-link" href="#">Trần Đình Phúc (52000109)</a>
+                <a class="nav-link" href="#">Đăng xuất</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5 body">
+        <div class="row mb-3 justify-content-center">
+            <button type="button" class="btn btn-success add" data-bs-toggle="modal" data-bs-target="#dathang">Tạo tài khoản</button>
+            <div class="modal fade" id="dathang" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="text-center text-secondary mt-5 mb-3">Tạo tài khoản</h3>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class=" w-100 mb-5 mx-auto px-3 pt-3 " action="#" th:action="@{/saveaccount}" th:object="${taikhoan}" method="post">
+                                <div class="form-group">
+                                    <label for="username">Tài khoản</label>
+                                    <input id="username" type="text" class="form-control" placeholder="Nhập tài khoản" th:field="*{username}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="fullname">Họ và tên</label>
+                                    <input id="fullname" type="text" class="form-control" placeholder="Nhập họ tên" th:field="*{name}">
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" value="GiangVien" id="gv" th:field="*{vaitro}">
+                                    <label class="form-check-label" for="gv">
+                                        Giảng viên
+                                    </label> <br>
+                                    <input class="form-check-input" type="radio" value="HocSinh" id="hs" name="chucvu">
+                                    <label class="form-check-label" for="hs">
+                                        Học sinh
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Mật khẩu</label>
+                                    <input id="password" type="password" class="form-control" placeholder="Nhập mật khẩu" th:field="*{password}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Nhập lại mật khẩu</label>
+                                    <input id="repassword" type="password" class="form-control" placeholder="Nhập lại mật khẩu" name="repassword">
+                                </div>
+                                <div class="form-group mt-3">
+                                    <button class="btn btn-success px-5">Tạo</button>
+                                </div>
+                                <p id="message" class="text-danger">a</p>
+                            </form>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-8 px-4">
+				<div class="border rounded p-3 bg-light">
+					<h4 class="text-success">Quản lý tài khoản</h4>
+					<c:if test="${not empty deleteMessage }">
+						<div class="alert alert-${deleteMessage.type} alert-dismissible fade show mt-2" role="alert">
+						 	${deleteMessage.content}
+						  	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							   <span aria-hidden="true">&times;</span>
+							 </button>
+						  </div>
+					</c:if>
+					<table class="table">
+					  <thead>
+					    <tr>
+					      <th scope="col">STT</th>
+					      <th scope="col">Tên đội bóng</th>
+					      <th scope="col">Thao tác</th>
+					    </tr>
+					  </thead>
+					  
+					  <tbody>
+						  <c:forEach var="product" items="${listProduct}" varStatus="loop">
+						  	<tr>
+						      <th scope="row">${loop.index + 1}</th>
+						      <td>${product.name}</td>
+						      <td>
+						      	<a href="#" class="ml-2 text-danger" data-toggle="modal" data-id="${product.id}" data-name="${product.name}" data-target="#delete-product-model">Delete</a> |
+                                <a href="#" class="ml-2 text-danger" data-toggle="modal" data-id="${product.id}" data-name="${product.name}" data-target="#delete-product-model">Edit</a>
+						      </td>
+						    </tr>
+						  </c:forEach>
+                          <tr>
+                            <th scope="row">${loop.index + 1}</th>
+                            <td>${product.name}</td>
+                            <td>
+                                <a href="#" class="ml-2 text-danger" data-toggle="modal" data-id="${product.id}" data-name="${product.name}" data-target="#delete-product-model">Delete</a> |
+                              <a href="#" class="ml-2 text-danger" data-toggle="modal" data-id="${product.id}" data-name="${product.name}" data-target="#delete-product-model">Edit</a>
+                            </td>
+                          </tr>
+                          
+					  </tbody>
+					</table>
+				</div>
+			</div>
+        </div>
+    </div>
+    <hr size="10">
+    <div class="container-fluit">
+        <div class="row mt-3">
+            <div class="footer d-flex justify-content-center p-5">
+                <span style="color: white;">Copyright ©2020 Đại học Tôn Đức Thắng</span> 
+            </div>
+        </div>
+    </div>
+</body>
+</html>

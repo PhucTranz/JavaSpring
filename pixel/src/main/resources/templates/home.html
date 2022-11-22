@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Home</title>
+    <style>
+        .imgslide{
+            width: 100%;
+        }
+        a{
+            text-decoration: none;
+        }
+        .imgfeature{
+            width: 100%;
+        }
+        .body{
+            border: 1px solid;
+            padding: 15px;
+            border-radius: 25%;
+            background-color: white;
+        }
+        .slide{
+            margin: 0 0;
+            padding: 0 0;
+        }
+        body, footer{
+            background-color: #005baa;
+        }
+        .imgfeature:hover{
+            -webkit-transform: scale(0.8);
+	        transform: scale(0.8);
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("#header").load("./header.html");
+        });
+    </script>
+</head>
+<body>
+<div id="header"></div>
+    <div class="container-fluid slide">
+        <div id="slideshow" class="carousel slide px-4 mt-2" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#slideshow" data-bs-slide-to="0" class="active" aria-current="true"></button>
+                <button type="button" data-bs-target="#slideshow" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#slideshow" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="imgslide" src="https://vfis.tdtu.edu.vn/sites/default/files/gva-sliderlayer-upload/VYF06631-odvlig.jpg">
+                </div>
+                <div class="carousel-item">
+                    <img class="imgslide" src="https://vfis.tdtu.edu.vn/sites/default/files/gva-sliderlayer-upload/VYF08246-1hapg2.jpg">
+                </div>
+                <div class="carousel-item">
+                    <img class="imgslide" src="https://vfis.tdtu.edu.vn/sites/default/files/gva-sliderlayer-upload/VYF03735-2jehkl.jpg">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#slideshow" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#slideshow" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+
+    <div class="container mt-5 body">
+        <div class="row d-flex justify-content-center">
+            <div class="col-3">
+                <div class="card h-100">
+                    <a href="#"><img class="imgfeature" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ_YA2N48_bzmmMsBl6ViYLxWUSdN5WTpfDQ&usqp=CAU" alt=""></a>
+                    <div class="card-body">
+                        <h3><a href="#"> Quản lý tài khoản </a></h3>
+                        <p>Quản lý tài khoản giảng viên/học sinh</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-3">
+                <div class="card h-100">
+                    <a href="#"><img class="imgfeature" src="data:image/png;base64,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" alt=""></a>
+                    <div class="card-body">
+                        <h3><a href="#"> Quản lý thiết bị </a></h3>
+                        <p>Quản lý các thiết bị có thể mượn tại VFIS</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center pt-4">
+            <div class="col-3">
+                <div class="card h-100">
+                    <a href="#"><img class="imgfeature" src="data:image/png;base64,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" alt=""></a>
+                    <div class="card-body">
+                        <h3><a href="#"> Duyệt phiếu mượn </a></h3>
+                        <p>Các phiếu mượn đang chờ duyệt tại đây</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-3">
+                <div class="card h-100">
+                    <a href="#"><img class="imgfeature" src="data:image/png;base64,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" alt=""></a>
+                    <div class="card-body">
+                        <h3><a href="#"> Lịch sử mượn/trả </a></h3>
+                        <p>Tất cả các phiếu mượn được lưu trữu tại đây</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr size="10">
+    <div class="container-fluit">
+        <div class="row mt-3">
+            <div class="footer d-flex justify-content-center p-5">
+                <span style="color: white;">Copyright ©2020 Đại học Tôn Đức Thắng</span> 
+            </div>
+        </div>
+    </div>
+</body>
+</html>
