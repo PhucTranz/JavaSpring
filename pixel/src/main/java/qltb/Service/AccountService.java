@@ -1,9 +1,12 @@
-package qltb;
+package qltb.Service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import qltb.Model.User;
+import qltb.Repository.AccountRepository;
 
 @Service
 @Transactional

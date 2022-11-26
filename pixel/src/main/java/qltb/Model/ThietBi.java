@@ -1,4 +1,4 @@
-package qltb;
+package qltb.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -1,4 +1,4 @@
-package qltb;
+package qltb.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
