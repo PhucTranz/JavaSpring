@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <title>Home</title>
+    <title>Trang chủ</title>
     <style>
         .imgslide{
             width: 100%;
@@ -76,9 +76,9 @@
         <div class="row d-flex justify-content-center">
             <div class="col-3">
                 <div class="card h-100">
-                    <a th:href="@{/admin/createaccount}"><img class="imgfeature" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ_YA2N48_bzmmMsBl6ViYLxWUSdN5WTpfDQ&usqp=CAU" alt=""></a>
+                    <a th:href="@{/admin/account}"><img class="imgfeature" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ_YA2N48_bzmmMsBl6ViYLxWUSdN5WTpfDQ&usqp=CAU" alt=""></a>
                     <div class="card-body">
-                        <h3><a th:href="@{/admin/createaccount}"> Quản lý tài khoản </a></h3>
+                        <h3><a th:href="@{/admin/account}"> Quản lý tài khoản </a></h3>
                         <p>Quản lý tài khoản giảng viên/học sinh</p>
                     </div>
                 </div>
@@ -86,9 +86,9 @@
             <div class="col-1"></div>
             <div class="col-3">
                 <div class="card h-100">
-                    <a th:href="@{/admin/createaccount}"><img class="imgfeature" src="data:image/png;base64,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" alt=""></a>
+                    <a th:href="@{/admin/device}"><img class="imgfeature" src="data:image/png;base64,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" alt=""></a>
                     <div class="card-body">
-                        <h3><a th:href="@{/admin/createaccount}"> Quản lý thiết bị </a></h3>
+                        <h3><a th:href="@{/admin/device}"> Quản lý thiết bị </a></h3>
                         <p>Quản lý các thiết bị có thể mượn tại VFIS</p>
                     </div>
                 </div>

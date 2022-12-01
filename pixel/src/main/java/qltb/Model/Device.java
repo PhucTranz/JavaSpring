@@ -11,10 +11,10 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class ThietBi {
+public class Device {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String maTB;
+	private int maTB;
 	private String ten;
 	private int soluong;
 }
