@@ -32,6 +32,14 @@ public class MyUserDetails implements UserDetails {
         return user.getUsername();
     }
     
+    public String getName() {
+        return user.getName();
+    }
+    
+    public String getChucvu() {
+        return user.getChucvu();
+    }
+    
     public String getRole() {
 		return user.getRole();
 	}

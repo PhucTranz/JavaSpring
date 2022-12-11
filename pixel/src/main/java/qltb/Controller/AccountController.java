@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import qltb.MyUserDetails;
+import qltb.Model.Phieu;
 import qltb.Model.User;
 import qltb.Repository.UserRepository;
 import qltb.Service.AccountService;
+import qltb.Service.PhieuService;
 
 @Controller
 public class AccountController {
@@ -26,6 +28,9 @@ public class AccountController {
 	
 	@Autowired
     private UserRepository userRepository;
+	
+	@Autowired
+    private PhieuService phieuService;
 	
 	private static boolean error = false;
 	
@@ -107,5 +112,14 @@ public class AccountController {
 			e.printStackTrace();
 		}
 		return "ChangePassword";	
+	}
+	
+	@RequestMapping("/accountdetails")
+	public String accountDetailsPage(Model model) {
+		MyUserDetails u = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		model.addAttribute("user", u);
+		List<Phieu> listPhieu = phieuService.getByUserID(u.getID());
+		model.addAttribute("sl", listPhieu.size());
+		return "AccountDetails";
 	}
 }

@@ -44,4 +44,19 @@ public class AppController {
 	public String viewHeaderAdminPage(Model model) {
 		return "header";
 	}
+	
+	@RequestMapping("thongtin/header.html")
+	public String TTHeader(Model model) {
+		return "header";
+	}
+	
+	@RequestMapping("admin/duyetdonpage/header.html")
+	public String DDHeader(Model model) {
+		return "header";
+	}
+	
+	@RequestMapping("admin/thongtin/header.html")
+	public String aTTHeader(Model model) {
+		return "header";
+	}
 }
