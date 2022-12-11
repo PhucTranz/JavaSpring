@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Thông tin phiếu mượn</title>
+    <style>
+        a{
+            text-decoration: none;
+        }
+        .body{
+            border: 1px solid;
+            padding: 15px;
+            border-radius: 25%;
+            background-color: white;
+        }
+        body, footer{
+            background-color: #005baa;
+        }
+        .form-group, .form-check{
+            margin: auto;
+            margin-top: 5px;
+        }
+        #details{
+            background-color: white;
+            padding: 70px 200px;
+        }
+    </style>
+    <script>
+	    $(document).ready(function(){
+	    	$("#header").load("./header.html");
+	    	if($("#trangthai").html()==="Trạng thái:&nbsp;Chờ trả"){
+				$('#huy').hide();
+				$('#duyet').hide();
+			}
+            if($("#trangthai").html()==="Trạng thái:&nbsp;Chờ duyệt"){
+				$('#ketthuc').hide();
+			}
+			if($("#trangthai").html()==="Trạng thái:&nbsp;Kết thúc" || $("#trangthai").html()==="Trạng thái:&nbsp;Đã hủy"){
+				$('#ketthuc').hide();
+				$('#huy').hide();
+				$('#duyet').hide();
+			}
+	    });
+    </script>
+</head>
+<body>
+	<div id="header"></div>
+    <div class="container-fluid" id="details">
+        <div class="row">
+            <h1 class="text-success text-center">THÔNG TIN PHIẾU MƯỢN</h1>
+        </div>
+        <div class="row">
+            <p th:text="@{Người mượn:&#160;}+${name}"></p>
+            <p th:text="@{Chức vụ:&#160;}+${chucvu}"></p>
+            <p th:text="@{Giờ mượn:&#160;}+${phieu.giomuon}"></p>
+            <p th:text="@{Giờ trả:&#160;}+${phieu.giotra}"></p>
+            <p th:text="@{Trạng thái:&#160;}+${phieu.trangthai}" id="trangthai"></p>
+            <p>Danh sách các thiết bị mượn:</p>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col">Thiết bị</th>
+                    <th scope="col">Số lượng</th>
+                  </tr>
+                </thead>
+                
+                <tbody>
+                    <tr th:each="device,state : ${listTB}">
+                          <td th:text="${state.count}"></td>
+                          <td th:text="${device.ten}"></td>
+                        <td th:text="${device.soluong}"></td>
+                    </tr>
+                </tbody>
+              </table>
+        </div>
+        <div class="row">
+        	<h3 class="text-center"><a id="ketthuc" class="text-success" th:href="@{/admin/finish/}+${phieu.maPhieu}">Xác nhận trả</a></h3>
+            <h3 class="text-center"><a id="duyet" class="text-success" th:href="@{/admin/duyetdon/}+${phieu.maPhieu}">Duyệt đơn</a></h3>
+        	<h3 class="text-center"><a id="huy" class="text-danger" th:href="@{/admin/huydon/}+${phieu.maPhieu}">Hủy đơn</a></h3>
+        </div>
+    </div>
+
+    <hr size="10">
+    <div class="container-fluit">
+        <div class="row mt-3">
+            <div class="footer d-flex justify-content-center p-5">
+                <span style="color: white;">Copyright ©2020 Đại học Tôn Đức Thắng</span> 
+            </div>
+        </div>
+    </div>
+</body>
+</html>
