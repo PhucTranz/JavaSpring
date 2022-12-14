@@ -34,6 +34,7 @@ public class AccountController {
 	
 	private static boolean error = false;
 	
+	//Hien thi trang quan ly tai khoan
 	@RequestMapping("admin/account")
 	public String viewCreateAccountPage(Model model) {
 		if(error==true) {
@@ -46,12 +47,14 @@ public class AccountController {
 		return "AccountManagement";
 	}
 	
+	//Xoa tai khoan
 	@RequestMapping("/admin/deleteAccount/{id}")
 	public String deleteAccount(@PathVariable(name = "id") int id) {
 		accountservice.delete(id);
 		return "redirect:/admin/account";		
 	}
 	
+	//Sua tai khoan
 	@RequestMapping(value = "admin/updateAccount", method = RequestMethod.POST)
 	public String editAccount(@ModelAttribute("taikhoan") User tk, Model model) {
 		try {
@@ -65,6 +68,7 @@ public class AccountController {
 		return "redirect:/admin/account";
 	}
 	
+	//Them tai khoan
 	@RequestMapping(value = "admin/saveaccount", method = RequestMethod.POST)
 	public String saveAccount(@ModelAttribute("taikhoan") User tk, Model model) {
 		try {
@@ -83,11 +87,13 @@ public class AccountController {
 		return "redirect:/admin/account";
 	}
 	
+	//Hien thi trang doi mat khau
 	@RequestMapping("/changepassword")
 	public String viewChangePassPage(Model model) {
 		return "ChangePassword";
 	}
 	
+	//Luu mat khau moi
 	@RequestMapping(value = "/savePassword", method = RequestMethod.POST)
 	public String savePassword(@RequestParam(name = "password") String p,@RequestParam(name = "newpassword") String np,@RequestParam(name = "cfnewpassword") String cfp, Model model) {
 		if(p.equals("") || np.equals("") || cfp.equals(""))
@@ -114,6 +120,7 @@ public class AccountController {
 		return "ChangePassword";	
 	}
 	
+	//Xem thong tin tai khoan
 	@RequestMapping("/accountdetails")
 	public String accountDetailsPage(Model model) {
 		MyUserDetails u = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

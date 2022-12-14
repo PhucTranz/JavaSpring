@@ -21,6 +21,7 @@ public class DeviceController {
 	
 	private static boolean error = false;
 	
+	//Hien thi trang quan ly thiet bi
 	@RequestMapping("admin/device")
 	public String viewDevicePage(Model model) {
 		if(error==true) {
@@ -33,12 +34,14 @@ public class DeviceController {
 		return "DeviceManagement";
 	}
 	
+	//Xoa thiet bi
 	@RequestMapping("/admin/deleteDevice/{id}")
 	public String deleteDevice(@PathVariable(name = "id") int id) {
 		deviceService.delete(id);
 		return "redirect:/admin/device";		
 	}
 	
+	//Them thiet bi
 	@RequestMapping(value = "admin/saveDevice", method = RequestMethod.POST)
 	public String saveDevice (@ModelAttribute("device") Device d, Model model) {
 		try {
@@ -49,6 +52,7 @@ public class DeviceController {
 		return "redirect:/admin/device";
 	}
 	
+	//Sua thiet bi
 	@RequestMapping(value = "admin/updateDevice", method = RequestMethod.POST)
 	public String editAccount(@ModelAttribute("device") Device d, Model model) {
 		try {

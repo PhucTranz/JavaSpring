@@ -39,6 +39,7 @@ public class BorrowController {
 	@Autowired
 	AccountService accountService;
 	
+	//Hien thi trang tao phieu muon
 	@RequestMapping("/muon_thiet_bi")
 	public String viewBorrowPage(Model model) {
 		List<Device> listDevices = deviceService.listAll();
@@ -47,6 +48,7 @@ public class BorrowController {
 		return "Borrow";
 	}
 	
+	//Luu phieu muon va hien thi thong tin
 	@RequestMapping(value = "/tao_phieu", method = RequestMethod.POST)
 	public String taoPhieu(@RequestParam(name = "thietbi") Integer[] tb,@RequestParam(name = "soluong") Integer[] sl, @ModelAttribute("phieu") Phieu phieu) {
 		
@@ -72,6 +74,7 @@ public class BorrowController {
 		return "redirect:/thongtin/"+curr.getMaPhieu();	
 	}
 	
+	//Hien thi lich su muon phieu
 	@RequestMapping("/lich_su")
 	public String viewHistoryPage(Model model) {
 		MyUserDetails u = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -81,6 +84,7 @@ public class BorrowController {
 		return "history";
 	}
 	
+	//Hien thi thong tin phieu
 	@RequestMapping("/thongtin/{id}")
 	public String viewDetails(@PathVariable(name = "id") int id, Model model) {
 		Phieu phieu = phieuService.get(id);
@@ -100,6 +104,7 @@ public class BorrowController {
 		return "PhieuDetails";		
 	}
 	
+	//Huy phieu muon
 	@RequestMapping("/huydon/{id}")
 	public String huyPhieu(@PathVariable(name = "id") int id) {
 		Phieu phieu = phieuService.get(id);
@@ -109,6 +114,7 @@ public class BorrowController {
 		return "redirect:/thongtin/"+id;		
 	}
 	
+	//Duyet phieu
 	@RequestMapping("/admin/duyetdonpage")
 	public String duyetDonPage(Model model) {
 		List<Phieu> listPhieu = phieuService.getNotFinish();
@@ -117,6 +123,7 @@ public class BorrowController {
 		return "Admin_ListPhieu";
 	}
 	
+	//Xem thong tin phieu cho admin
 	@RequestMapping("admin/thongtin/{id}")
 	public String viewAdminDetails(@PathVariable(name = "id") int id, Model model) {
 		Phieu phieu = phieuService.get(id);
@@ -139,6 +146,7 @@ public class BorrowController {
 		return "Admin_PhieuDetails";		
 	}
 	
+	//Huy phieu cho admin
 	@RequestMapping("admin/huydon/{id}")
 	public String adminHuyPhieu(@PathVariable(name = "id") int id) {
 		Phieu phieu = phieuService.get(id);
@@ -147,7 +155,7 @@ public class BorrowController {
 		return "redirect:/admin/duyetdonpage";		
 	}
 	
-	
+	//Duyet don cho admin
 	@RequestMapping("admin/duyetdon/{id}")
 	public String adminDuyetPhieu(@PathVariable(name = "id") int id) {
 		Phieu phieu = phieuService.get(id);
@@ -156,6 +164,7 @@ public class BorrowController {
 		return "redirect:/admin/duyetdonpage";		
 	}
 	
+	//Xem lich su muon cho admin
 	@RequestMapping("admin/lich_su")
 	public String viewAdminHistoryPage(Model model) {
 		List<Phieu> listPhieu = phieuService.listAll();
@@ -165,6 +174,7 @@ public class BorrowController {
 		return "history";
 	}
 	
+	//Xet phieu sang trang thai ket thuc
 	@RequestMapping("admin/finish/{id}")
 	public String adminFinishPhieu(@PathVariable(name = "id") int id) {
 		Phieu phieu = phieuService.get(id);
