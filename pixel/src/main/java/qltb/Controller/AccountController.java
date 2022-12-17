@@ -32,7 +32,7 @@ public class AccountController {
 	@Autowired
     private PhieuService phieuService;
 	
-	private static boolean error = false;
+	private static boolean error = true;
 	
 	//Knows url when param is admin/account and get list for html used.
 	@RequestMapping("admin/account")
