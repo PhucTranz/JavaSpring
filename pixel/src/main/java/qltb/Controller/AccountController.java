@@ -34,7 +34,7 @@ public class AccountController {
 	
 	private static boolean error = false;
 	
-	//Hien thi trang quan ly tai khoan
+	//Knows url when param is admin/account and get list for html used.
 	@RequestMapping("admin/account")
 	public String viewCreateAccountPage(Model model) {
 		if(error==true) {
