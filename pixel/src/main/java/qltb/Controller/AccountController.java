@@ -129,4 +129,9 @@ public class AccountController {
 		model.addAttribute("sl", listPhieu.size());
 		return "AccountDetails";
 	}
+
+	@RequestMapping("/changepassworded")
+	public String viewChangePasswordPage(Model model) {
+		return "ChangePassword";
+	}
 }
